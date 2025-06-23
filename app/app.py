@@ -8,7 +8,12 @@ import os
 # Import backend logic from analysis folder
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'analysis')))
 import ipl_analysis as ipl
+print("🔍 CWD:", os.getcwd())
+print("📂 app folder contents:", os.listdir(os.getcwd()))
+print("📂 analysis folder listing:", os.listdir(os.path.join(os.getcwd(), "analysis")))
+print("📂 analysis/data folder listing:", os.listdir(os.path.join(os.getcwd(), "analysis", "data")), flush=True)
 
+sys.exit()  # Stop here so we see this output in logs
 # Load data
 matches, deliveries = ipl.load_data()
 
