@@ -8,15 +8,7 @@ import os
 # Import backend logic from analysis folder
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'analysis')))
 import ipl_analysis as ipl
-# Show current working directory
-st.write("📁 Current Directory:", os.getcwd())
 
-# Show contents of key folders
-st.write("📂 Root folder:", os.listdir(os.getcwd()))
-if os.path.exists("analysis"):
-    st.write("📂 analysis/:", os.listdir("analysis"))
-if os.path.exists("analysis/data"):
-    st.write("📂 analysis/data/:", os.listdir("analysis/data"))
 # Load data
 matches, deliveries = ipl.load_data()
 
