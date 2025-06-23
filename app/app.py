@@ -6,7 +6,7 @@ import sys
 import os
 
 # Import backend logic from analysis folder
-
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from analysis import ipl_analysis as ipl
 
 # Load data
