@@ -1,9 +1,9 @@
 import pandas as pd
-
+import os
 # ---------- File Paths ----------
-MATCHES_PATH = "C:\ipl-analysis-project\data\matches.csv"
-DELIVERIES_PATH = "C:\ipl-analysis-project\data\deliveries.csv"
-
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MATCHES_PATH = os.path.join(BASE_DIR, '..', 'data', 'matches.csv')
+DELIVERIES_PATH = os.path.join(BASE_DIR, '..', 'data', 'deliveries.csv')
 # ---------- Load Data ----------
 def load_data():
     matches = pd.read_csv(MATCHES_PATH)
