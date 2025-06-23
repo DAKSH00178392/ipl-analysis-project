@@ -2,11 +2,11 @@ import pandas as pd
 import os
 # ---------- File Paths ----------
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-MATCHES_PATH = os.path.join(BASE_DIR, "..", "data", "matches.csv")
-DELIVERIES_PATH = os.path.join(BASE_DIR, "..", "data", "deliveries.csv")
+MATCHES_PATH = os.path.join(BASE_DIR, "data", "matches.csv")
+DELIVERIES_PATH = os.path.join(BASE_DIR, "data", "deliveries.csv")
 
 def load_data():
-    print("✅ Reading from:", MATCHES_PATH)
+    print("📁 Reading:", MATCHES_PATH)
     matches = pd.read_csv(MATCHES_PATH)
     deliveries = pd.read_csv(DELIVERIES_PATH)
 
@@ -19,17 +19,7 @@ def load_data():
 
     return matches, deliveries
 
-    # Clean column names
-    matches.columns = matches.columns.str.strip().str.lower()
-    deliveries.columns = deliveries.columns.str.strip().str.lower()
-
-    # Fix season column if missing
-    if 'season' not in matches.columns:
-        matches['date'] = pd.to_datetime(matches['date'])
-        matches['season'] = matches['date'].dt.year
-
-    return matches, deliveries
-
+    
 # ---------- Overview Stats ----------
 def get_basic_overview(matches_df):
     total_matches = matches_df.shape[0]
